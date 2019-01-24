@@ -13,9 +13,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var ageTextField: UITextField!
-    var person = DataService.shared.selectedPerson
+    var person: Person?
     override func viewDidLoad() {
         super.viewDidLoad()
+        person = DataService.shared.selectedPerson
         if let person = person {
             nameTextField.text = person.name
             ageTextField.text = String(person.age)
