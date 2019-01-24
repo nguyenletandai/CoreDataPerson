@@ -21,7 +21,6 @@ class DataService {
     var selectedPerson : Person?
     init()  {
         people = try? (AppDelegate.context.fetch(Person.fetchRequest())) as [Person]
-        
     }
   
     func remove(at indexPath: IndexPath, in tableView: UITableView) {
@@ -30,10 +29,12 @@ class DataService {
         AppDelegate.saveContext()
         tableView.deleteRows(at: [indexPath], with: .fade)
     }
+    
     func insert(person: Person, at indexPath: IndexPath, in tableView: UITableView?) {
         people.append(person)
         tableView?.insertRows(at: [indexPath], with: .fade)
     }
+    
     func edit(name: String?, ageString: String?, image: UIImage?) {
         selectedPerson?.name = name
         selectedPerson?.age = Int64(ageString ?? "") ?? 0

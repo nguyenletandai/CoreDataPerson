@@ -51,7 +51,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let person = person {
           DataService.shared.edit(name: nameTextField.text, ageString: ageTextField.text, image: avatarImage.image)
-            
         } else {
             DataService.shared.createPerson(name: nameTextField.text, ageString: ageTextField.text, image: avatarImage.image)
         }
